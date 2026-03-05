@@ -6,9 +6,9 @@ description: >
   toast queue, haptic feedback, loading toast, action buttons,
   custom animation/widget/effect builders — and full developer control.
 version: 1.0.0
-homepage: https://github.com/yourname/twist_toast
-repository: https://github.com/yourname/twist_toast
-issue_tracker: https://github.com/yourname/twist_toast/issues
+homepage: https://github.com/QasimAwan925/twist_toast.git
+repository: https://github.com/QasimAwan925/twist_toast.git
+
 
 environment:
   sdk: ">=2.19.0 <4.0.0"

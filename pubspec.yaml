@@ -1,0 +1,25 @@
+name: twist_toast
+description: >
+  A stunning Flutter toast notification package with 9 directions,
+  13 animations, 10 card styles, 9 dismiss particle effects (burst,
+  sparkle, confetti, bubbles, firework, shatter, ripple, hearts),
+  toast queue, haptic feedback, loading toast, action buttons,
+  custom animation/widget/effect builders — and full developer control.
+version: 1.0.0
+homepage: https://github.com/yourname/twist_toast
+repository: https://github.com/yourname/twist_toast
+issue_tracker: https://github.com/yourname/twist_toast/issues
+
+environment:
+  sdk: ">=2.19.0 <4.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+

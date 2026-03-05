@@ -1,0 +1,9 @@
+# TwistToast — static analysis & lint configuration
+# Uses flutter_lints recommended set; customize as needed.
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    - prefer_const_constructors
+    - prefer_const_literals_to_create_immutables
+    - avoid_print

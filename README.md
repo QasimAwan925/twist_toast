@@ -52,6 +52,10 @@ TwistToast.loading(context, 'Finding driver...');
 TwistToast.dismiss();
 ```
 
+| success | error | warning | info | loading |
+|---|---|---|---|---|
+| ![success](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/success.gif) | ![error](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/connection_error.gif) | ![warning](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/low_balance_warning.gif) | ![info](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/driver_update.gif) | ![loading](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/searching.gif) |
+
 ---
 
 ## Global Config (once in main)
@@ -112,6 +116,10 @@ TwistToast.warning(context, 'Bottom Right', direction: TwistDirection.bottomRigh
 TwistToast.error(context, 'Center Screen', direction: TwistDirection.center);
 ```
 
+| topCenter | topLeft | topRight | bottomCenter | bottomLeft | bottomRight | leftCenter | rightCenter | center |
+|---|---|---|---|---|---|---|---|---|
+| ![topCenter](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/top_center.gif) | ![topLeft](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/top_left.gif) | ![topRight](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/top_right.gif) | ![bottomCenter](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/bottom_center.gif) | ![bottomLeft](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/bottom_left.gif) | ![bottomRight](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/bottom_right.gif) | ![leftCenter](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/left_centre.gif) | ![rightCenter](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/right_center.gif) | ![center](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/center.gif) |
+
 ### Animations
 ```dart
 TwistToast.success(context, 'Bounce!', animationType: TwistAnimationType.bounce);
@@ -123,6 +131,10 @@ TwistToast.success(context, 'Ripple!', animationType: TwistAnimationType.ripple)
 TwistToast.success(context, 'Drop!', animationType: TwistAnimationType.drop);
 TwistToast.success(context, 'Unfold!', animationType: TwistAnimationType.unfold);
 ```
+
+| slide | fade | scale | bounce | flip | flipY | rotate | elastic | zoom | ripple | drop | unfold |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| ![slide](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/slide.gif) | ![fade](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/fade.gif) | ![scale](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/scale.gif) | ![bounce](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/bounce.gif) | ![flip](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/flip_x.gif) | ![flipY](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/flip_y.gif) | ![rotate](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/rotate.gif) | ![elastic](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/elastic.gif) | ![zoom](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/zoom.gif) | ![ripple](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/ripple.gif) | ![drop](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/drop.gif) | ![unfold](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/unfold.gif) |
 
 ### Dismiss Effects
 ```dart
@@ -136,6 +148,10 @@ TwistToast.info(context, 'Ripple!', dismissEffect: TwistDismissEffect.rippleBurs
 TwistToast.success(context, 'Hearts!', dismissEffect: TwistDismissEffect.hearts);
 ```
 
+| none | burst | sparkle | confetti | bubbles | firework | shatter | rippleBurst | hearts |
+|---|---|---|---|---|---|---|---|---|
+| ![none](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/none_effect.gif) | ![burst](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/burst_effect.gif) | ![sparkle](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/sparkle_effect.gif) | ![confetti](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/confetti_effect.gif) | ![bubbles](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/bubbles_effect.gif) | ![firework](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/firework_effect.gif) | ![shatter](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/shatter_effect.gif) | ![rippleBurst](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/ripple_burst_effect.gif) | ![hearts](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/hearts_effect.gif) |
+
 ### Card Styles
 ```dart
 TwistToast.success(context, 'Glass', style: TwistStyle.glass);
@@ -148,6 +164,10 @@ TwistToast.success(context, 'Neon', style: TwistStyle.neon);
 TwistToast.success(context, 'Neumorphic', style: TwistStyle.neumorphic);
 TwistToast.success(context, 'Tinted', style: TwistStyle.tinted);
 ```
+
+| glass | flat | gradient | outlined | material | minimal | neon | neumorphic | tinted |
+|---|---|---|---|---|---|---|---|---|
+| ![glass](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/glass_style.gif) | ![flat](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/flat_style.gif) | ![gradient](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/gradient_style.gif) | ![outlined](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/outlined_style.gif) | ![material](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/material_style.gif) | ![minimal](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/minimal_style.gif) | ![neon](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/neon_style.gif) | ![neumorphic](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/neumorphic_style.gif) | ![tinted](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/tinted_style.gif) |
 
 ### Custom Animation
 ```dart
@@ -168,6 +188,8 @@ TwistToast.info(context, 'Spinning entrance!',
 );
 ```
 
+![custom_animation](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/custom_animation.gif)
+
 ### Custom Dismiss Effect
 ```dart
 TwistToast.success(context, 'Custom particles!',
@@ -182,6 +204,8 @@ TwistToast.success(context, 'Custom particles!',
   },
 );
 ```
+
+![custom_effect](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/custom_effect.gif)
 
 ### Custom Card Widget
 ```dart
@@ -214,6 +238,8 @@ TwistToast.custom(context, '',
 );
 ```
 
+![your_driver_arrived](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/your_driver_arrived.gif)
+
 ### Queue
 ```dart
 TwistToast.info(context, 'Searching for drivers...');
@@ -221,6 +247,8 @@ TwistToast.success(context, 'Driver found!');
 TwistToast.info(context, 'Driver is on the way.');
 TwistToast.success(context, 'Enjoy your ride!');
 ```
+
+![4_step](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/4_step.gif)
 
 ### Loading
 ```dart
@@ -230,6 +258,8 @@ TwistToast.dismiss();
 TwistToast.success(context, 'Payment complete!');
 ```
 
+![booking_confirmed](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/booking_confirmed.gif)
+
 ### Programmatic Control
 ```dart
 TwistToast.dismiss();        // dismiss current
@@ -238,3 +268,4 @@ print(TwistToast.isShowing); // bool
 print(TwistToast.queueLength); // int
 ```
 
+![callback_demo](https://raw.githubusercontent.com/QasimAwan925/twist_toast/main/assets/callback_demo.gif)

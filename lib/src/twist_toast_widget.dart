@@ -407,7 +407,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
       case TwistType.custom:
         final c = widget.data.customColor ?? const Color(0xFF8B5CF6);
         return _TypeTheme(c, Icons.stars_rounded, 'Notification',
-            widget.data.customGradient ?? [c.withOpacity(0.75), c]);
+            widget.data.customGradient ?? [c.withValues(alpha: 0.75), c]);
     }
   }
 
@@ -789,13 +789,13 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
         child: Container(
           decoration: BoxDecoration(
-            color: const Color(0xFF0F172A).withOpacity(0.88),
+            color: const Color(0xFF0F172A).withValues(alpha: 0.88),
             borderRadius: br,
-            border: Border.all(color: t.color.withOpacity(0.22)),
+            border: Border.all(color: t.color.withValues(alpha: 0.22)),
             boxShadow: [
-              BoxShadow(color: t.color.withOpacity(0.22), blurRadius: 28,
+              BoxShadow(color: t.color.withValues(alpha: 0.22), blurRadius: 28,
                   spreadRadius: 1, offset: const Offset(0, 4)),
-              BoxShadow(color: Colors.black.withOpacity(0.45), blurRadius: 20,
+              BoxShadow(color: Colors.black.withValues(alpha: 0.45), blurRadius: 20,
                   offset: const Offset(0, 8)),
             ],
           ),
@@ -813,9 +813,9 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         borderRadius: br,
         border: Border(left: BorderSide(color: t.color, width: 4.5)),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.09), blurRadius: 18,
+          BoxShadow(color: Colors.black.withValues(alpha: 0.09), blurRadius: 18,
               offset: const Offset(0, 4)),
-          BoxShadow(color: t.color.withOpacity(0.08), blurRadius: 12,
+          BoxShadow(color: t.color.withValues(alpha: 0.08), blurRadius: 12,
               offset: const Offset(0, 2)),
         ],
       ),
@@ -835,12 +835,12 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
             end: Alignment(_shimmer.value, 0.4),
             colors: [
               ...t.gradients,
-              t.color.withOpacity(0.55),
+              t.color.withValues(alpha: 0.55),
               ...t.gradients.reversed,
             ],
           ),
           boxShadow: [
-            BoxShadow(color: t.color.withOpacity(0.4), blurRadius: 30,
+            BoxShadow(color: t.color.withValues(alpha: 0.4), blurRadius: 30,
                 spreadRadius: 2, offset: const Offset(0, 6)),
           ],
         ),
@@ -854,11 +854,11 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
   Widget _outlinedCard(_TypeTheme t, TwistConfig cfg, BorderRadius br) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.62),
+        color: Colors.black.withValues(alpha: 0.62),
         borderRadius: br,
         border: Border.all(color: t.color, width: 1.5),
         boxShadow: [
-          BoxShadow(color: t.color.withOpacity(0.18), blurRadius: 18,
+          BoxShadow(color: t.color.withValues(alpha: 0.18), blurRadius: 18,
               offset: const Offset(0, 4)),
         ],
       ),
@@ -871,12 +871,12 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
     return Material(
       elevation: 10,
       borderRadius: br,
-      shadowColor: t.color.withOpacity(0.3),
+      shadowColor: t.color.withValues(alpha: 0.3),
       color: Colors.white,
       child: Container(
         decoration: BoxDecoration(
           borderRadius: br,
-          border: Border.all(color: t.color.withOpacity(0.14)),
+          border: Border.all(color: t.color.withValues(alpha: 0.14)),
         ),
         child: _content(t, cfg, _V.material, br),
       ),
@@ -888,11 +888,11 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 11),
       decoration: BoxDecoration(
-        color: t.color.withOpacity(0.13),
+        color: t.color.withValues(alpha: 0.13),
         borderRadius: BorderRadius.circular(100),
-        border: Border.all(color: t.color.withOpacity(0.35)),
+        border: Border.all(color: t.color.withValues(alpha: 0.35)),
         boxShadow: [
-          BoxShadow(color: t.color.withOpacity(0.15), blurRadius: 14,
+          BoxShadow(color: t.color.withValues(alpha: 0.15), blurRadius: 14,
               offset: const Offset(0, 3)),
         ],
       ),
@@ -918,7 +918,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
           GestureDetector(
             onTap: () => _triggerDismiss(manual: true),
             child: Icon(Icons.close_rounded,
-                color: t.color.withOpacity(0.6), size: 14),
+                color: t.color.withValues(alpha: 0.6), size: 14),
           ),
         ],
       ),
@@ -933,15 +933,15 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         decoration: BoxDecoration(
           color: const Color(0xFF050510),
           borderRadius: br,
-          border: Border.all(color: t.color.withOpacity(0.8), width: 1.5),
+          border: Border.all(color: t.color.withValues(alpha: 0.8), width: 1.5),
           boxShadow: [
             BoxShadow(
-                color: t.color.withOpacity(0.35 * _neonGlow.value),
+                color: t.color.withValues(alpha: 0.35 * _neonGlow.value),
                 blurRadius: 8, spreadRadius: 1),
             BoxShadow(
-                color: t.color.withOpacity(0.28 * _neonGlow.value),
+                color: t.color.withValues(alpha: 0.28 * _neonGlow.value),
                 blurRadius: 26, spreadRadius: 4),
-            BoxShadow(color: Colors.black.withOpacity(0.6), blurRadius: 20,
+            BoxShadow(color: Colors.black.withValues(alpha: 0.6), blurRadius: 20,
                 offset: const Offset(0, 8)),
           ],
         ),
@@ -960,14 +960,14 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         boxShadow: [
           const BoxShadow(
               color: Colors.white, blurRadius: 16, offset: Offset(-6, -6)),
-          BoxShadow(color: Colors.grey.withOpacity(0.35), blurRadius: 16,
+          BoxShadow(color: Colors.grey.withValues(alpha: 0.35), blurRadius: 16,
               offset: const Offset(6, 6)),
         ],
       ),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: br,
-          border: Border.all(color: t.color.withOpacity(0.1)),
+          border: Border.all(color: t.color.withValues(alpha: 0.1)),
         ),
         child: _content(t, cfg, _V.neumorphic, br),
       ),
@@ -982,11 +982,11 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
         child: Container(
           decoration: BoxDecoration(
-            color: t.color.withOpacity(0.18),
+            color: t.color.withValues(alpha: 0.18),
             borderRadius: br,
-            border: Border.all(color: t.color.withOpacity(0.35)),
+            border: Border.all(color: t.color.withValues(alpha: 0.35)),
             boxShadow: [
-              BoxShadow(color: t.color.withOpacity(0.2), blurRadius: 20,
+              BoxShadow(color: t.color.withValues(alpha: 0.2), blurRadius: 20,
                   spreadRadius: 1, offset: const Offset(0, 4)),
             ],
           ),
@@ -1010,23 +1010,23 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
 
     final titleColor = isGrad ? Colors.white : t.color;
     final msgColor = isGrad
-        ? Colors.white.withOpacity(0.92)
+        ? Colors.white.withValues(alpha: 0.92)
         : isLight
         ? Colors.black54
         : isTinted
-        ? t.color.withOpacity(0.85)
+        ? t.color.withValues(alpha: 0.85)
         : Colors.white70;
     final iconBg = isGrad
-        ? Colors.white.withOpacity(0.18)
+        ? Colors.white.withValues(alpha: 0.18)
         : isLight
-        ? t.color.withOpacity(0.10)
-        : t.color.withOpacity(0.14);
+        ? t.color.withValues(alpha: 0.10)
+        : t.color.withValues(alpha: 0.14);
     final closeIconColor = isGrad
-        ? Colors.white.withOpacity(0.85)
+        ? Colors.white.withValues(alpha: 0.85)
         : isLight ? Colors.black38 : Colors.white54;
     final closeBg = isGrad
-        ? Colors.white.withOpacity(0.18)
-        : Colors.white.withOpacity(0.09);
+        ? Colors.white.withValues(alpha: 0.18)
+        : Colors.white.withValues(alpha: 0.09);
 
     return ClipRRect(
       borderRadius: br,
@@ -1038,10 +1038,10 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
               duration: data.duration,
               color: isGrad ? Colors.white : t.color,
               bg: isGrad
-                  ? Colors.white.withOpacity(0.22)
+                  ? Colors.white.withValues(alpha: 0.22)
                   : isLight
-                  ? t.color.withOpacity(0.12)
-                  : Colors.white.withOpacity(0.08),
+                  ? t.color.withValues(alpha: 0.12)
+                  : Colors.white.withValues(alpha: 0.08),
             ),
 
           Padding(
@@ -1150,7 +1150,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
           boxShadow: isNeon
               ? [
             BoxShadow(
-                color: t.color.withOpacity(0.4),
+                color: t.color.withValues(alpha: 0.4),
                 blurRadius: 8,
                 spreadRadius: 1)
           ]
@@ -1182,15 +1182,15 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
               const EdgeInsets.symmetric(horizontal: 18, vertical: 7),
               decoration: BoxDecoration(
                 color: isGrad
-                    ? Colors.white.withOpacity(0.18)
+                    ? Colors.white.withValues(alpha: 0.18)
                     : isLight
-                    ? color.withOpacity(0.10)
-                    : color.withOpacity(0.15),
+                    ? color.withValues(alpha: 0.10)
+                    : color.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: isGrad
-                      ? Colors.white.withOpacity(0.3)
-                      : color.withOpacity(0.3),
+                      ? Colors.white.withValues(alpha: 0.3)
+                      : color.withValues(alpha: 0.3),
                 ),
               ),
               child: Text(

@@ -238,27 +238,3 @@ print(TwistToast.isShowing); // bool
 print(TwistToast.queueLength); // int
 ```
 
----
-
-## Running Tests
-
-```bash
-flutter test test/twist_toast_test.dart
-```
-
----
-
-## File Structure
-
-```
-lib/
-  twist_toast.dart              # Barrel export — import this
-  src/
-    twist_toast_types.dart      # All enums, typedefs, models
-    twist_toast_config.dart     # TwistConfig global singleton
-    twist_toast_core.dart       # TwistToast API + queue
-    twist_toast_widget.dart     # Card widget + animations
-    twist_toast_particles.dart  # All particle dismiss effects
-test/
-  twist_toast_test.dart         # Full test suite
-```

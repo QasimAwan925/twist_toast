@@ -1,25 +1,33 @@
+# The package name – used when importing in Dart code.
 name: twist_toast
-description: >
-  A stunning Flutter toast notification package with 9 directions,
-  13 animations, 10 card styles, 9 dismiss particle effects (burst,
-  sparkle, confetti, bubbles, firework, shatter, ripple, hearts),
-  toast queue, haptic feedback, loading toast, action buttons,
-  custom animation/widget/effect builders — and full developer control.
-version: 1.0.0
+
+# A short, concise description of what the package does.
+# Keep it under ~60 characters for pub.dev.
+description: A highly customizable toast notification library with stunning animations, 9 positions, 10 styles, and 12+ dismiss effects.
+
+# Current version of the package. Follows semantic versioning.
+version: 1.0.1
+
+# URL of the package homepage (usually the GitHub repository).
 homepage: https://github.com/QasimAwan925/twist_toast.git
+
+# URL of the source code repository.
 repository: https://github.com/QasimAwan925/twist_toast.git
 
-
+# Environment constraints – which SDK versions this package works with.
 environment:
+  # Minimum and maximum Dart SDK version.
   sdk: ">=2.19.0 <4.0.0"
+  # Minimum Flutter version required.
   flutter: ">=3.0.0"
 
+# Dependencies that are required for the package to work.
 dependencies:
   flutter:
     sdk: flutter
 
+# Development dependencies – only used during development (testing, linting).
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-

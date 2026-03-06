@@ -183,7 +183,7 @@ class _BurstEffectState extends State<_BurstEffect>
     final t = _c.value;
     return CustomPaint(
       painter: _SimplePainter(
-        (canvas, size) {
+            (canvas, size) {
           for (final p in _pts) {
             // Ease-out travel: fast start, slow end
             final dist = Curves.easeOut.transform(t);
@@ -195,7 +195,7 @@ class _BurstEffectState extends State<_BurstEffect>
             final r = p.size * (1 - t * 0.35);
             canvas.drawCircle(
               Offset(x, y), r.clamp(0, 999),
-              Paint()..color = p.color.withOpacity(opacity.clamp(0, 1)),
+              Paint()..color = p.color.withValues(alpha: opacity.clamp(0, 1)),
             );
           }
         },
@@ -254,7 +254,7 @@ class _SparkleEffectState extends State<_SparkleEffect>
           final y = p.y + p.vy * eased;
           final opacity = (1 - t).clamp(0.0, 1.0);
           _drawStar(canvas, Offset(x, y), p.size * (1 - t * 0.4),
-              p.color.withOpacity(opacity));
+              p.color.withValues(alpha: opacity));
         }
       }),
     );
@@ -337,7 +337,7 @@ class _ConfettiEffectState extends State<_ConfettiEffect>
               : (1.0 - (t - 0.65) / 0.35).clamp(0.0, 1.0);
           final rot = p.rot + p.rotV * t;
 
-          final paint = Paint()..color = p.color.withOpacity(opacity);
+          final paint = Paint()..color = p.color.withValues(alpha: opacity);
           canvas.save();
           canvas.translate(x, y);
           canvas.rotate(rot);
@@ -382,7 +382,7 @@ class _BubblesEffectState extends State<_BubblesEffect>
         vx: _rand(-25, 25),
         vy: -spd,  // negative = upward
         size: _rand(10, 22),
-        color: widget.color.withOpacity(0.5),
+        color: widget.color.withValues(alpha: 0.5),
       );
     });
     _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 950))
@@ -410,20 +410,20 @@ class _BubblesEffectState extends State<_BubblesEffect>
           // Bubble fill (translucent)
           canvas.drawCircle(
             Offset(x, y), r,
-            Paint()..color = p.color.withOpacity(opacity * 0.28),
+            Paint()..color = p.color.withValues(alpha: opacity * 0.28),
           );
           // Bubble border
           canvas.drawCircle(
             Offset(x, y), r,
             Paint()
-              ..color = widget.color.withOpacity(opacity * 0.75)
+              ..color = widget.color.withValues(alpha: opacity * 0.75)
               ..style = PaintingStyle.stroke
               ..strokeWidth = 1.6,
           );
           // Glint highlight
           canvas.drawCircle(
             Offset(x - r * 0.3, y - r * 0.3), r * 0.22,
-            Paint()..color = Colors.white.withOpacity(opacity * 0.65),
+            Paint()..color = Colors.white.withValues(alpha: opacity * 0.65),
           );
         }
       }),
@@ -500,14 +500,14 @@ class _FireworkEffectState extends State<_FireworkEffect>
           canvas.drawLine(
             Offset(tx, ty), Offset(x, y),
             Paint()
-              ..color = p.color.withOpacity(opacity * 0.38)
+              ..color = p.color.withValues(alpha: opacity * 0.38)
               ..strokeWidth = p.size * 0.55
               ..strokeCap = StrokeCap.round,
           );
           // Head dot
           canvas.drawCircle(
             Offset(x, y), (p.size * (1 - t * 0.5)).clamp(0, 999),
-            Paint()..color = p.color.withOpacity(opacity.toDouble()),
+            Paint()..color = p.color.withValues(alpha: opacity.toDouble()),
           );
         }
       }),
@@ -553,7 +553,7 @@ class _ShatterEffectState extends State<_ShatterEffect>
         size: _rand(12, 24),
         rot: _randAngle(),
         rotV: _rand(-8, 8),
-        color: _lighten(widget.color, _rand(0, 0.45)).withOpacity(0.88),
+        color: _lighten(widget.color, _rand(0, 0.45)).withValues(alpha: 0.88),
       );
     });
     _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 820))
@@ -587,7 +587,7 @@ class _ShatterEffectState extends State<_ShatterEffect>
             ..lineTo(w, h)
             ..lineTo(-w, h)
             ..close();
-          canvas.drawPath(path, Paint()..color = s.color.withOpacity(opacity));
+          canvas.drawPath(path, Paint()..color = s.color.withValues(alpha: opacity));
           canvas.restore();
         }
       }),
@@ -639,7 +639,7 @@ class _RippleBurstEffectState extends State<_RippleBurstEffect>
           canvas.drawCircle(
             widget.origin, radius,
             Paint()
-              ..color = widget.color.withOpacity(opacity * 0.55)
+              ..color = widget.color.withValues(alpha: opacity * 0.55)
               ..style = PaintingStyle.stroke
               ..strokeWidth = 3.5 * (1 - p * 0.6),
           );
@@ -707,7 +707,7 @@ class _HeartsEffectState extends State<_HeartsEffect>
           canvas.rotate(p.rot + t * 0.8);
 
           final path = _heartPath(s);
-          canvas.drawPath(path, Paint()..color = p.color.withOpacity(opacity));
+          canvas.drawPath(path, Paint()..color = p.color.withValues(alpha: opacity));
           canvas.restore();
         }
       }),
@@ -752,7 +752,7 @@ class _SnowEffectState extends State<_SnowEffect>
         vx: _rand(-18, 18),
         vy: _rand(60, 140), // falls downward
         size: _rand(4, 10),
-        color: Colors.white.withOpacity(0.9),
+        color: Colors.white.withValues(alpha: 0.9),
         rot: _randAngle(),
         rotV: _rand(-3, 3),
       );
@@ -784,7 +784,7 @@ class _SnowEffectState extends State<_SnowEffect>
           canvas.rotate(p.rot + p.rotV * t);
           _drawSnowflake(canvas, p.size,
               Paint()
-                ..color = p.color.withOpacity(opacity.toDouble())
+                ..color = p.color.withValues(alpha: opacity.toDouble())
                 ..strokeWidth = 1.2
                 ..strokeCap = StrokeCap.round);
           canvas.restore();
@@ -880,7 +880,7 @@ class _LightningEffectState extends State<_LightningEffect>
         for (final bolt in _bolts) {
           // Glow (thick, very transparent)
           final glowPaint = Paint()
-            ..color = bolt.color.withOpacity((opacity * 0.3).clamp(0, 1))
+            ..color = bolt.color.withValues(alpha: (opacity * 0.3).clamp(0, 1))
             ..strokeWidth = 7
             ..strokeCap = StrokeCap.round
             ..strokeJoin = StrokeJoin.round
@@ -888,7 +888,7 @@ class _LightningEffectState extends State<_LightningEffect>
 
           // Core (thin, fully opaque)
           final corePaint = Paint()
-            ..color = bolt.color.withOpacity(opacity.clamp(0, 1))
+            ..color = bolt.color.withValues(alpha: opacity.clamp(0, 1))
             ..strokeWidth = 2
             ..strokeCap = StrokeCap.round
             ..strokeJoin = StrokeJoin.round
@@ -981,7 +981,7 @@ class _PixelateEffectState extends State<_PixelateEffect>
 
           canvas.drawRect(
             Rect.fromCenter(center: Offset(x, y), width: px.size, height: px.size),
-            Paint()..color = px.color.withOpacity(opacity.toDouble()),
+            Paint()..color = px.color.withValues(alpha: opacity.toDouble()),
           );
         }
       }),

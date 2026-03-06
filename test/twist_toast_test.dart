@@ -9,13 +9,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-// Import from src directly so tests work both inside the package
-// and when dropped into an app's test folder.
-import '../lib/src/twist_toast_types.dart';
-import '../lib/src/twist_toast_config.dart';
-import '../lib/src/twist_toast_core.dart';
-import '../lib/src/twist_toast_widget.dart';
-import '../lib/src/twist_toast_particles.dart';
+import 'package:twist_toast/src/twist_toast_types.dart';
+import 'package:twist_toast/src/twist_toast_config.dart';
+import 'package:twist_toast/src/twist_toast_core.dart';
+import 'package:twist_toast/src/twist_toast_particles.dart';
 
 // =============================================================================
 // TEST HELPERS
@@ -27,23 +24,6 @@ Widget _wrap(Widget child) {
   return MaterialApp(
     home: Scaffold(
       body: Builder(builder: (ctx) => child),
-    ),
-  );
-}
-
-/// Pumps a TwistToastWidget into the tree and returns the BuildContext
-/// of the inner Builder so we can call TwistToast from it.
-Widget _toastHost(WidgetTester tester, TwistToastData data) {
-  late BuildContext hostContext;
-  return MaterialApp(
-    home: Scaffold(
-      body: Builder(builder: (ctx) {
-        hostContext = ctx;
-        return GestureDetector(
-          onTap: () => TwistToast.show(hostContext, data),
-          child: const Center(child: Text('Tap to show toast')),
-        );
-      }),
     ),
   );
 }

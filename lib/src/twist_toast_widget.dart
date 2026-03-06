@@ -31,12 +31,13 @@ class TwistToastWidget extends StatefulWidget {
   /// Called after the exit animation finishes.
   final VoidCallback onDismiss;
 
+  // FIX: use super parameter for key
   const TwistToastWidget({
-    Key? key,
+    super.key,
     required this.data,
     required this.callerContext,
     required this.onDismiss,
-  }) : super(key: key);
+  });
 
   @override
   State<TwistToastWidget> createState() => _TwistToastWidgetState();
@@ -127,7 +128,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         at == TwistAnimationType.jelly ||
         at == TwistAnimationType.heartbeat) {
       _main.addStatusListener((s) {
-        if (s == AnimationStatus.completed) _shakeCtrl.forward();
+        if (s == AnimationStatus.completed) { _shakeCtrl.forward(); }
       });
     }
 
@@ -164,9 +165,9 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
     ).animate(CurvedAnimation(parent: _main, curve: Curves.easeOutBack));
 
     double rotBegin = 0.0;
-    if (at == TwistAnimationType.rotate)     rotBegin = -0.35;
-    if (at == TwistAnimationType.rotateFull) rotBegin = -math.pi * 2;
-    if (at == TwistAnimationType.spiral)     rotBegin = -math.pi * 1.5;
+    if (at == TwistAnimationType.rotate)     { rotBegin = -0.35; }
+    if (at == TwistAnimationType.rotateFull) { rotBegin = -math.pi * 2; }
+    if (at == TwistAnimationType.spiral)     { rotBegin = -math.pi * 1.5; }
     _rotVal = Tween<double>(begin: rotBegin, end: 0.0).animate(
       CurvedAnimation(parent: _main, curve: Curves.easeOutBack),
     );
@@ -335,7 +336,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
         onComplete: () {
           try { entry.remove(); } catch (_) {}
           _particleEntry = null;
-          if (mounted) _playExitAnimation();
+          if (mounted) { _playExitAnimation(); }
         },
       ),
     );
@@ -356,7 +357,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
   void _playExitAnimation() {
     if (!mounted) return;
     _main.reverse().then((_) {
-      if (mounted) widget.onDismiss();
+      if (mounted) { widget.onDismiss(); }
     });
   }
 
@@ -528,16 +529,14 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
             },
             onVerticalDragEnd: (d) {
               final v = d.primaryVelocity ?? 0;
-              if (isTopAnchor && v < -80)
-                _triggerDismiss(manual: true);
-              if (!isTopAnchor && !isLeftAnchor && !isRightAnchor && v > 80)
-                _triggerDismiss(manual: true);
+              if (isTopAnchor && v < -80) { _triggerDismiss(manual: true); }
+              if (!isTopAnchor && !isLeftAnchor && !isRightAnchor && v > 80) { _triggerDismiss(manual: true); }
             },
             onHorizontalDragEnd: (d) {
               final v = d.primaryVelocity ?? 0;
-              if (isLeftAnchor  && v < -80) _triggerDismiss(manual: true);
-              if (isRightAnchor && v >  80) _triggerDismiss(manual: true);
-              if (v.abs() > 220)            _triggerDismiss(manual: true);
+              if (isLeftAnchor  && v < -80) { _triggerDismiss(manual: true); }
+              if (isRightAnchor && v >  80) { _triggerDismiss(manual: true); }
+              if (v.abs() > 220)            { _triggerDismiss(manual: true); }
             },
             child: ConstrainedBox(
               constraints: BoxConstraints(
@@ -573,7 +572,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
           animation: _scaleY,
           builder: (_, c) => Transform(
             alignment: Alignment.topCenter,
-            transform: Matrix4.identity()..scale(1.0, _scaleY.value, 1.0),
+            transform: Matrix4.identity()..scaleByDouble(1.0, _scaleY.value, 1.0, 1.0),
             child: c,
           ),
           child: child,
@@ -733,8 +732,9 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
             animation: _shakeCtrl,
             builder: (_, c) => Transform(
               alignment: Alignment.center,
+              // FIX: replaced deprecated .scale with explicit Matrix4 scaleByDouble calls
               transform: Matrix4.identity()
-                ..scale(_jellyScaleX.value, _jellyScaleY.value, 1.0),
+                ..scaleByDouble(_jellyScaleX.value, _jellyScaleY.value, 1.0, 1.0),
               child: c,
             ),
             child: child,
@@ -1175,7 +1175,7 @@ class _TwistToastWidgetState extends State<TwistToastWidget>
           GestureDetector(
             onTap: () {
               a.onPressed();
-              if (a.dismissOnPress) _triggerDismiss(manual: true);
+              if (a.dismissOnPress) { _triggerDismiss(manual: true); }
             },
             child: Container(
               padding:
@@ -1294,9 +1294,9 @@ class _WipeClipper extends CustomClipper<Rect> {
 class _HeartbeatCurve extends Curve {
   @override
   double transformInternal(double t) {
-    if (t < 0.2)  return 1.0 + math.sin(t * math.pi / 0.2) * 0.15;
-    if (t < 0.35) return 1.0;
-    if (t < 0.55) return 1.0 + math.sin((t - 0.35) * math.pi / 0.2) * 0.25;
+    if (t < 0.2)  { return 1.0 + math.sin(t * math.pi / 0.2) * 0.15; }
+    if (t < 0.35) { return 1.0; }
+    if (t < 0.55) { return 1.0 + math.sin((t - 0.35) * math.pi / 0.2) * 0.25; }
     return 1.0;
   }
 }

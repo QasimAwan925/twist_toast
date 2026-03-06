@@ -36,14 +36,15 @@ class TwistParticleOverlay extends StatelessWidget {
   /// Used only when [effect] == [TwistDismissEffect.custom].
   final TwistDismissEffectBuilder? customBuilder;
 
+  // FIX: use super parameter for key
   const TwistParticleOverlay({
-    Key? key,
+    super.key,
     required this.effect,
     required this.color,
     required this.tapPosition,
     required this.onComplete,
     this.customBuilder,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -494,7 +495,7 @@ class _FireworkEffectState extends State<_FireworkEffect>
           final opacity = t < 0.38 ? 1.0 : (1 - (t - 0.38) / 0.62).clamp(0, 1);
 
           // Trail line from origin toward current position
-          final trailRatio = 0.65;
+          const trailRatio = 0.65; // FIX: was final, now const
           final tx = p.x + p.vx * eased * trailRatio;
           final ty = p.y + p.vy * eased * trailRatio + 30 * t * t * trailRatio;
           canvas.drawLine(
@@ -854,7 +855,7 @@ class _LightningEffectState extends State<_LightningEffect>
   // Generates a jagged line from start to end with random perpendicular offsets
   List<Offset> _generateBolt(Offset start, Offset end) {
     final pts = <Offset>[start];
-    final segments = 6;
+    const segments = 6; // FIX: was final, now const
     for (int i = 1; i < segments; i++) {
       final t = i / segments;
       final base = Offset.lerp(start, end, t)!;
